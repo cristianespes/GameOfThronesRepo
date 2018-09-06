@@ -10,7 +10,11 @@
 		1942F4DF2141B371009210B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F4DE2141B371009210B7 /* AppDelegate.swift */; };
 		1942F4E62141B373009210B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1942F4E52141B373009210B7 /* Assets.xcassets */; };
 		1942F4E92141B373009210B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1942F4E72141B373009210B7 /* LaunchScreen.storyboard */; };
-		1942F4F42141B373009210B7 /* WesterosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F4F32141B373009210B7 /* WesterosTests.swift */; };
+		1942F5022141BD99009210B7 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5012141BD99009210B7 /* House.swift */; };
+		1942F5042141C21F009210B7 /* Sigil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5032141C21F009210B7 /* Sigil.swift */; };
+		1942F5082141C918009210B7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5072141C918009210B7 /* Person.swift */; };
+		1942F50B2141D60A009210B7 /* HouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5092141D60A009210B7 /* HouseTests.swift */; };
+		1942F50C2141D60A009210B7 /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F50A2141D60A009210B7 /* PersonTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +34,12 @@
 		1942F4E82141B373009210B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1942F4EA2141B373009210B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1942F4EF2141B373009210B7 /* WesterosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WesterosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1942F4F32141B373009210B7 /* WesterosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WesterosTests.swift; sourceTree = "<group>"; };
 		1942F4F52141B373009210B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1942F5012141BD99009210B7 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		1942F5032141C21F009210B7 /* Sigil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sigil.swift; sourceTree = "<group>"; };
+		1942F5072141C918009210B7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		1942F5092141D60A009210B7 /* HouseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTests.swift; sourceTree = "<group>"; };
+		1942F50A2141D60A009210B7 /* PersonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				1942F4DE2141B371009210B7 /* AppDelegate.swift */,
+				1942F5002141BD74009210B7 /* Domain */,
 				1942F4E52141B373009210B7 /* Assets.xcassets */,
 				1942F4E72141B373009210B7 /* LaunchScreen.storyboard */,
 				1942F4EA2141B373009210B7 /* Info.plist */,
@@ -84,10 +93,21 @@
 		1942F4F22141B373009210B7 /* WesterosTests */ = {
 			isa = PBXGroup;
 			children = (
-				1942F4F32141B373009210B7 /* WesterosTests.swift */,
 				1942F4F52141B373009210B7 /* Info.plist */,
+				1942F5092141D60A009210B7 /* HouseTests.swift */,
+				1942F50A2141D60A009210B7 /* PersonTests.swift */,
 			);
 			path = WesterosTests;
+			sourceTree = "<group>";
+		};
+		1942F5002141BD74009210B7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1942F5012141BD99009210B7 /* House.swift */,
+				1942F5072141C918009210B7 /* Person.swift */,
+				1942F5032141C21F009210B7 /* Sigil.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +163,7 @@
 					};
 					1942F4EE2141B373009210B7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 						TestTargetID = 1942F4DA2141B371009210B7;
 					};
 				};
@@ -190,7 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1942F5042141C21F009210B7 /* Sigil.swift in Sources */,
+				1942F5022141BD99009210B7 /* House.swift in Sources */,
 				1942F4DF2141B371009210B7 /* AppDelegate.swift in Sources */,
+				1942F5082141C918009210B7 /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +222,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1942F4F42141B373009210B7 /* WesterosTests.swift in Sources */,
+				1942F50C2141D60A009210B7 /* PersonTests.swift in Sources */,
+				1942F50B2141D60A009210B7 /* HouseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +372,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,7 +390,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +406,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = WesterosTests/Info.plist;
@@ -393,6 +417,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.celes.WesterosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Westeros.app/Westeros";
@@ -404,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = WesterosTests/Info.plist;

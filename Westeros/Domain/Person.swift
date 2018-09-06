@@ -28,15 +28,38 @@ final class Person {
     }
     
     // MARK: - Initialization
-    init(name: String, alias: String, house: House) {
+    init(name: String, alias: String? = nil, house: House) {
         self.name = name
         _alias = alias
         self.house = house
     }
     
-    init(name: String, house: House) {
-        self.name = name
-        self.house = house
-        _alias = nil
+//    convenience init(name: String, house: House) {
+//        self.init(name: name, alias: nil, house: house)
+//    }
+}
+
+extension Person {
+    var fullName : String {
+        return "\(self.name) \(self.house.name)"
+    }
+}
+
+extension Person {
+    var proxy : String {
+        return "\(name)\(alias)\(house.name)"
+    }
+}
+
+extension Person : Hashable {
+    var hashValue: Int {
+        
+        return proxy.hashValue
+    }
+}
+
+extension Person : Equatable {
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxy == rhs.proxy
     }
 }
