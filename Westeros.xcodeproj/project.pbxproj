@@ -22,6 +22,10 @@
 		1942F5082141C918009210B7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5072141C918009210B7 /* Person.swift */; };
 		1942F50B2141D60A009210B7 /* HouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F5092141D60A009210B7 /* HouseTests.swift */; };
 		1942F50C2141D60A009210B7 /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942F50A2141D60A009210B7 /* PersonTests.swift */; };
+		196D92B821563D87009CFA11 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92B721563D87009CFA11 /* Season.swift */; };
+		196D92BA21563E2A009CFA11 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92B921563E2A009CFA11 /* Episode.swift */; };
+		196D92BC21564CEF009CFA11 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92BB21564CEF009CFA11 /* EpisodeTests.swift */; };
+		196D92BE21566250009CFA11 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92BD21566250009CFA11 /* Date+String.swift */; };
 		1994C7C52152DACD00E51424 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C7C42152DACD00E51424 /* Notification+Name.swift */; };
 		1994C7C92152DF3100E51424 /* HouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C7C72152DF3100E51424 /* HouseCell.swift */; };
 		1994C7CA2152DF3100E51424 /* HouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1994C7C82152DF3100E51424 /* HouseCell.xib */; };
@@ -69,6 +73,10 @@
 		1942F5072141C918009210B7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		1942F5092141D60A009210B7 /* HouseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTests.swift; sourceTree = "<group>"; };
 		1942F50A2141D60A009210B7 /* PersonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
+		196D92B721563D87009CFA11 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		196D92B921563E2A009CFA11 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		196D92BB21564CEF009CFA11 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
+		196D92BD21566250009CFA11 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		1994C7C42152DACD00E51424 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		1994C7C72152DF3100E51424 /* HouseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCell.swift; sourceTree = "<group>"; };
 		1994C7C82152DF3100E51424 /* HouseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseCell.xib; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 				1942F5092141D60A009210B7 /* HouseTests.swift */,
 				19BA82792149BBFD008EB623 /* RepositoryTests.swift */,
 				1942F50A2141D60A009210B7 /* PersonTests.swift */,
+				196D92BB21564CEF009CFA11 /* EpisodeTests.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -157,6 +166,8 @@
 				1942F5012141BD99009210B7 /* House.swift */,
 				1942F5072141C918009210B7 /* Person.swift */,
 				1942F5032141C21F009210B7 /* Sigil.swift */,
+				196D92B721563D87009CFA11 /* Season.swift */,
+				196D92B921563E2A009CFA11 /* Episode.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 			children = (
 				19BA82772149B9F1008EB623 /* UIViewController+Navigation.swift */,
 				1994C7C42152DACD00E51424 /* Notification+Name.swift */,
+				196D92BD21566250009CFA11 /* Date+String.swift */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196D92B821563D87009CFA11 /* Season.swift in Sources */,
 				19BA827D2149BCC1008EB623 /* Repository.swift in Sources */,
 				1938FC762151A8BA009D09BE /* Constants.swift in Sources */,
 				19BA82782149B9F1008EB623 /* UIViewController+Navigation.swift in Sources */,
@@ -347,6 +360,8 @@
 				1994C7C92152DF3100E51424 /* HouseCell.swift in Sources */,
 				1942F5022141BD99009210B7 /* House.swift in Sources */,
 				1942F4DF2141B371009210B7 /* AppDelegate.swift in Sources */,
+				196D92BA21563E2A009CFA11 /* Episode.swift in Sources */,
+				196D92BE21566250009CFA11 /* Date+String.swift in Sources */,
 				190125022150336D001A7E73 /* WikiViewController.swift in Sources */,
 				1942F5082141C918009210B7 /* Person.swift in Sources */,
 				19012506215059D1001A7E73 /* HouseListViewController.swift in Sources */,
@@ -358,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1942F50C2141D60A009210B7 /* PersonTests.swift in Sources */,
+				196D92BC21564CEF009CFA11 /* EpisodeTests.swift in Sources */,
 				1942F50B2141D60A009210B7 /* HouseTests.swift in Sources */,
 				19BA827A2149BBFD008EB623 /* RepositoryTests.swift in Sources */,
 			);
