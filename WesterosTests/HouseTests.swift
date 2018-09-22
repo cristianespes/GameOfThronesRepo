@@ -22,10 +22,14 @@ class HouseTests: XCTestCase {
     
 
     override func setUp() {
-        starkSigil = Sigil(description: "Lobo Huargo", image: UIImage())
-        lannisterSigil = Sigil(description: "Leon Rampante", image: UIImage())
-        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno")
-        lannisterHouse = House(name: "Stark", sigil: starkSigil, words: "Oye mi rugido")
+        starkSigil = Sigil(description: "Lobo Huargo", image: UIImage(named: "codeIsComing")!)
+        lannisterSigil = Sigil(description: "Leon Rampante", image: UIImage(named: "lannister.jpg")!)
+        
+        let starkUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!
+        let lannisterUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!
+        
+        starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: starkUrl)
+        lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido", url: lannisterUrl)
         
         robb = Person(name: "Robb", alias: "El joven lobo", house: starkHouse)
         arya = Person(name: "Arya", house: starkHouse)
@@ -67,5 +71,30 @@ class HouseTests: XCTestCase {
         starkHouse.add(person: tyrion)
         XCTAssertEqual(starkHouse.count, 2)
     }
-
+    
+    func testHouse_AddPersonsVariadic_ReturnsTheCorrectCountOfPersons() {
+        XCTAssertEqual(starkHouse.count, 0)
+        starkHouse.add(persons: robb, arya, tyrion)
+        XCTAssertEqual(starkHouse.count, 2)
+    }
+    
+    func testHouseEquality() {
+        // 1. Identidad
+        XCTAssertEqual(starkHouse, starkHouse)
+        
+        // 2. Igualdad
+        let jinxedHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!)
+        XCTAssertEqual(jinxedHouse, starkHouse)
+        
+        // 3. Desigualdad
+        XCTAssertNotEqual(starkHouse, lannisterHouse)
+    }
+    
+    func testHouseHashable() {
+        XCTAssertNotNil(starkHouse.hashValue)
+    }
+    
+    func testHouseComparison() {
+        XCTAssertLessThan(lannisterHouse, starkHouse)
+    }
 }

@@ -17,11 +17,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.backgroundColor = .red
         
-        let rootViewController = UIViewController()
+        // 1 - Crear el modelo
+        let houses = Repository.local.houses
+        
+        /*
+        // 2 - Crear controladores
+        /*var controllers = [UIViewController]()
+        // vc: [HouseDetailViewController]( = []
+        for house in houses {
+            controllers.append(HouseDetailViewController(model: house).wrappredInNavigation())
+        }*/
+        let controllers = houses.map {
+            HouseDetailViewController(model: $0).wrappredInNavigation()
+        }*/
+        
+        
+        // MasterViewController
+        let houseListViewController = HouseListViewController(model: houses)
+        let lastHouseSelected = houseListViewController.lastSelectedHouse()
+        
+        // DetailViewController
+        let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
+        
+        // Asignar delegados
+        houseListViewController.delegate = houseDetailViewController
+        
+        print("Dispositivo: \(UIDevice.current.model)")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            print("Ejecuta como iPad")
+        } else {
+            print("Ejecuta como iPhone")
+        }
+        
+        // Crear el combinador, es decir, el UISplitViewController
+        let splitViewController = UISplitViewController()
+        splitViewController.viewControllers = [
+            houseListViewController.wrappredInNavigation(),
+            houseDetailViewController.wrappredInNavigation()
+        ]
+        
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.40
+        splitViewController.maximumPrimaryColumnWidth = 300
+        
+        // 3 - Crear los Navigation
+        //let starkNC = starkVC.wrappredInNavigation()
+        //let lannisterNC = lannisterVC.wrappredInNavigation() // Devuelve un nuevo NC
+        
+        // 3 - Crear combinador
+        // Uso de TabBar
+//        let tabBarVC = UITabBarController()
+//        tabBarVC.viewControllers = controllers
+        
+        
+        // 3 - Asignar el rootVC
+//        let rootViewController = tabBarVC
+        let rootViewController = splitViewController
+        
+        /* CollectionView */
+//        let houseCollectionViewController = HouseCollectionViewController(model: houses)
+//        let rootViewController = houseCollectionViewController
+        /* CollectionView */
+        
         window?.rootViewController = rootViewController
+        
+        window?.makeKeyAndVisible()
         
         return true
     }

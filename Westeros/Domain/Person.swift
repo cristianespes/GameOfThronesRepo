@@ -46,8 +46,12 @@ extension Person {
 }
 
 extension Person {
-    var proxy : String {
+    var proxy : String { // Identificar inequivocamente una persona
         return "\(name)\(alias)\(house.name)"
+    }
+    
+    var proxyForComparison : String { // Ordenar según un criterio, nombre, fecha, etc
+        return fullName.lowercased()
     }
 }
 
@@ -61,5 +65,11 @@ extension Person : Hashable {
 extension Person : Equatable {
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.proxy == rhs.proxy
+    }
+}
+
+extension Person : Comparable {
+    static func < (lhs: Person, rhs: Person) -> Bool {
+        return lhs.proxyForComparison < rhs.proxyForComparison
     }
 }
