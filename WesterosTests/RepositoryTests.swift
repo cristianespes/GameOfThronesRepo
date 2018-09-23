@@ -12,10 +12,12 @@ import XCTest
 class RepositoryTests: XCTestCase {
     
     var localHouses: [House]!
+    var localSeasons: [Season]!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         localHouses = Repository.local.houses
+        localSeasons = Repository.local.seasons
     }
 
     override func tearDown() {
@@ -44,7 +46,7 @@ class RepositoryTests: XCTestCase {
         XCTAssertNil(keepcoding)
     }
 
-    func testLocalRepositoryHouseFiltering_() {
+    func testLocalRepositoryHouseFiltering() {
 //        let filtered = Repository.local.houses(filteredBy: { $0.count == 1 })
         var filtered = Repository.local.houses { $0.count == 1 }
         XCTAssertEqual(filtered.count, 1)
@@ -54,5 +56,26 @@ class RepositoryTests: XCTestCase {
         
         filtered = Repository.local.houses { $0.name == "Stark" }
         XCTAssertEqual(filtered[0].count, 2)
+    }
+    
+    func testLocalRepositorySeasonCreation() {
+        XCTAssertNotNil(localSeasons)
+        XCTAssertEqual(localSeasons.count, 7)
+        XCTAssertGreaterThan(localSeasons.count, 0)
+    }
+    
+    func testLocalRepositoryReturnsSortedArrayOfSeasons() {
+        XCTAssertEqual(localSeasons, localSeasons.sorted())
+    }
+    
+    func testLocalRepositorySeasonFiltering() {
+        var filtered = Repository.local.seasons { $0.count == 3 }
+        XCTAssertEqual(filtered.count, 7)
+        
+        filtered = Repository.local.seasons { $0.count == 100 }
+        XCTAssertTrue(filtered.isEmpty)
+        
+        filtered = Repository.local.seasons { $0.name == "Season 1" }
+        XCTAssertEqual(filtered[0].count, 3)
     }
 }

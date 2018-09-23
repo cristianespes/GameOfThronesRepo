@@ -26,6 +26,7 @@
 		196D92BA21563E2A009CFA11 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92B921563E2A009CFA11 /* Episode.swift */; };
 		196D92BC21564CEF009CFA11 /* EpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92BB21564CEF009CFA11 /* EpisodeTests.swift */; };
 		196D92BE21566250009CFA11 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D92BD21566250009CFA11 /* Date+String.swift */; };
+		19922D012157E66C00A38746 /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19922D002157E66C00A38746 /* SeasonTests.swift */; };
 		1994C7C52152DACD00E51424 /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C7C42152DACD00E51424 /* Notification+Name.swift */; };
 		1994C7C92152DF3100E51424 /* HouseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994C7C72152DF3100E51424 /* HouseCell.swift */; };
 		1994C7CA2152DF3100E51424 /* HouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1994C7C82152DF3100E51424 /* HouseCell.xib */; };
@@ -77,6 +78,7 @@
 		196D92B921563E2A009CFA11 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		196D92BB21564CEF009CFA11 /* EpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTests.swift; sourceTree = "<group>"; };
 		196D92BD21566250009CFA11 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		19922D002157E66C00A38746 /* SeasonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTests.swift; sourceTree = "<group>"; };
 		1994C7C42152DACD00E51424 /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		1994C7C72152DF3100E51424 /* HouseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseCell.swift; sourceTree = "<group>"; };
 		1994C7C82152DF3100E51424 /* HouseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseCell.xib; sourceTree = "<group>"; };
@@ -151,9 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				1942F4F52141B373009210B7 /* Info.plist */,
-				1942F5092141D60A009210B7 /* HouseTests.swift */,
 				19BA82792149BBFD008EB623 /* RepositoryTests.swift */,
+				1942F5092141D60A009210B7 /* HouseTests.swift */,
 				1942F50A2141D60A009210B7 /* PersonTests.swift */,
+				19922D002157E66C00A38746 /* SeasonTests.swift */,
 				196D92BB21564CEF009CFA11 /* EpisodeTests.swift */,
 			);
 			path = WesterosTests;
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19922D012157E66C00A38746 /* SeasonTests.swift in Sources */,
 				1942F50C2141D60A009210B7 /* PersonTests.swift in Sources */,
 				196D92BC21564CEF009CFA11 /* EpisodeTests.swift in Sources */,
 				1942F50B2141D60A009210B7 /* HouseTests.swift in Sources */,

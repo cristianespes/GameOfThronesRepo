@@ -14,7 +14,7 @@ class MemberListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    let model: [Person]
+    var model: [Person]
     
     init(model: [Person]) {
         self.model = model
@@ -31,15 +31,17 @@ class MemberListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        title = "Characters"
     }
 
     // MARK: - Lyfe Cycle
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Nos damos de alta en las notificaciones
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HouseDidChangeNotificationName), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(membersDidChange), name: .houseDidChangeNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,14 +52,23 @@ class MemberListViewController: UIViewController {
     }
     
     // MARK: - Notifications
-    @objc func houseDidChange(notification: Notification) {
+    @objc func membersDidChange(notification: Notification) {
         // Sacar la información y extraer la casa
-        guard let info = notification.userInfo, let house = info[HouseKey] as? House else { return }
+        guard let info = notification.userInfo, let members = info[Constants.membersKey] as? [Person] else { return }
         // Actualizar el modelo
-        self.model = house
+        self.model = members
         // Sincronizar modelo - vista
         tableView.reloadData()
-    }*/
+        
+        syncModelWithView()
+    }
+    
+    // MARK: - Sync
+    func syncModelWithView() {
+        let backItem = UIBarButtonItem()
+        backItem.title = navigationItem.title
+        navigationItem.backBarButtonItem = backItem
+    }
 }
 
 extension MemberListViewController: UITableViewDataSource {

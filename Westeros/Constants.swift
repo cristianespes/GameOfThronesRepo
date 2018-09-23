@@ -11,5 +11,6 @@ import Foundation
 enum Constants {
     static let houseDidChangeNotificationName = "HouseDidChange"
     static let houseKey = "HouseKey"
+    static let membersKey = "MembersKey"
     static let lastHouseKey = "lastHouseKey"
 }

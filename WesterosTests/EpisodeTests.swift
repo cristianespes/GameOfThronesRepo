@@ -36,11 +36,11 @@ class EpisodeTests: XCTestCase {
         dateStringFormatter.timeZone = TimeZone(secondsFromGMT:0)
         let date3 = dateFromString!
         
-        season1 = Season(number: 1, name: "Season 1", releaseDate: date1)
+        season1 = Season(number: 1, releaseDate: date1, image: UIImage())
         
-        episode1 = Episode(number: 1, title: "Winter Is Coming", issueDate: date1, season: season1)
-        episode2 = Episode(number: 2, title: "The Kingsroad", issueDate: date2, season: season1)
-        episode3 = Episode(number: 3, title: "Lord Snow", issueDate: date3, season: season1)
+        episode1 = Episode(number: 1, title: "Winter Is Coming", issueDate: date1, summary: "", season: season1)
+        episode2 = Episode(number: 2, title: "The Kingsroad", issueDate: date2, summary: "", season: season1)
+        episode3 = Episode(number: 3, title: "Lord Snow", issueDate: date3, summary: "", season: season1)
         
     }
 
@@ -71,7 +71,7 @@ class EpisodeTests: XCTestCase {
         dateStringFormatter.timeZone = TimeZone(secondsFromGMT:0)
         let dateFromString = dateStringFormatter.date(from: dateString)
         let date2 = dateFromString!
-        let newEpisode = Episode(number: 2, title: "The Kingsroad", issueDate: date2, season: season1)
+        let newEpisode = Episode(number: 2, title: "The Kingsroad", issueDate: date2, summary: "", season: season1)
         XCTAssertEqual(newEpisode, episode2)
         
         //3. Desigualdad
@@ -82,7 +82,5 @@ class EpisodeTests: XCTestCase {
         XCTAssertGreaterThan(episode2, episode1)
         XCTAssertLessThan(episode1, episode3)
     }
-    
-    
 
 }

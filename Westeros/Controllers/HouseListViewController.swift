@@ -103,7 +103,7 @@ class HouseListViewController: UITableViewController {
         
         // Enviar una notificacion
         let nc = NotificationCenter.default
-        let notification = Notification(name: .houseDidChangeNotification, object: self, userInfo: [Constants.houseKey : theHouse])
+        let notification = Notification(name: .houseDidChangeNotification, object: self, userInfo: [Constants.houseKey : theHouse, Constants.membersKey: theHouse.sortedMembers])
         // Enviar notificacion
         nc.post(notification)
         

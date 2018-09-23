@@ -12,12 +12,14 @@ final class Episode {
     let number: Int
     let title: String
     let issueDate: Date
+    let summary: String
     weak var season: Season?
     
-    init(number: Int, title: String, issueDate: Date, season: Season?) {
+    init(number: Int, title: String, issueDate: Date, summary: String, season: Season?) {
         self.number = number
         self.title = title
         self.issueDate = issueDate
+        self.summary = summary
         self.season = season
     }
 }
