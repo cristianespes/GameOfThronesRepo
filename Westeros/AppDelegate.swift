@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         
         // 1 - Crear el modelo
         let houses = Repository.local.houses
+        let seasons = Repository.local.seasons
         
         /*
         // 2 - Crear controladores
@@ -37,11 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         let houseListViewController = HouseListViewController(model: houses)
         let lastHouseSelected = houseListViewController.lastSelectedHouse()
         
+        let seasonListViewController = SeasonListViewController(model: seasons)
+        
         // DetailViewController
         let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
+        //let seasonDetailViewController = SeasonDetailViewController(model: seasons.first!)
         
         // Asignar delegados
         houseListViewController.delegate = houseDetailViewController
+        //seasonListViewController.delegate = seasonDetailViewController
         
         print("Dispositivo: \(UIDevice.current.model)")
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -64,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         // 3 - Crear los Navigation
         //let starkNC = starkVC.wrappredInNavigation()
         //let lannisterNC = lannisterVC.wrappredInNavigation() // Devuelve un nuevo NC
+        let seasonListNC = seasonListViewController.wrappredInNavigation()
+        //let seasonDetailNC = seasonDetailViewController.wrappredInNavigation()
         
         // 3 - Crear combinador
         // Uso de TabBar
@@ -73,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         
         // 3 - Asignar el rootVC
 //        let rootViewController = tabBarVC
-        let rootViewController = splitViewController
+        let rootViewController = splitViewController//seasonListNC
         
         /* CollectionView */
 //        let houseCollectionViewController = HouseCollectionViewController(model: houses)

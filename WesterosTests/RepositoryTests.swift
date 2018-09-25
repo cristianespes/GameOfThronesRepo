@@ -44,6 +44,9 @@ class RepositoryTests: XCTestCase {
         
         let keepcoding = Repository.local.house(named: "KeePCOding")
         XCTAssertNil(keepcoding)
+        
+        let lannister = Repository.local.house(named: .Lannister)
+        XCTAssertEqual(lannister?.name, Family.Lannister.rawValue)
     }
 
     func testLocalRepositoryHouseFiltering() {

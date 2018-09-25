@@ -68,9 +68,21 @@ final class LocalFactory: HouseFactory {
         return houses.first{ $0.name.lowercased() == name.lowercased() }
     }
     
+    func house(named name: Family) -> House? {
+        //return houses.filter { $0.name.lowercased() == name.lowercased() }.first
+        //return houses.first(where: { $0.name.lowercased() == name.lowercased() })
+        return houses.first{ $0.name.lowercased() == name.rawValue.lowercased() }
+    }
+    
     func houses(filteredBy: Filter) -> [House] {
         return houses.filter(filteredBy)
     }
+}
+
+enum Family: String {
+    case Stark
+    case Lannister
+    case Targaryen
 }
 
 

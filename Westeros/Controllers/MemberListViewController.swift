@@ -94,5 +94,11 @@ extension MemberListViewController: UITableViewDataSource {
 }
 
 extension MemberListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let member = model[indexPath.row]
+        // Crear el controlador del detalle de esa casa
+        let memberDetailViewController = MemberDetailViewController(model: member)
+        // Push a la nueva vista (apilar controladores)
+        navigationController?.pushViewController(memberDetailViewController, animated: true)
+    }
 }

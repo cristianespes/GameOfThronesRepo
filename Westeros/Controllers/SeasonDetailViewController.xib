@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeasonDetailViewController" customModule="Westeros" customModuleProvider="target">
+            <connections>
+                <outlet property="chaptersLabel" destination="w9Z-Cf-Bnj" id="pCJ-mu-2HU"/>
+                <outlet property="releaseLabel" destination="6Qh-FB-XQU" id="16z-6z-hYn"/>
+                <outlet property="seasonImage" destination="82F-EJ-fii" id="XGj-ri-2TY"/>
+                <outlet property="seasonLabel" destination="mTY-P6-yod" id="OeS-Xl-eaU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTY-P6-yod">
+                    <rect key="frame" x="16" y="50" width="343" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="BeB-L5-div"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="82F-EJ-fii">
+                    <rect key="frame" x="16" y="100" width="343" height="467"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI9-Kn-70n">
+                    <rect key="frame" x="16" y="587" width="343" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateValue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="6Qh-FB-XQU">
+                            <rect key="frame" x="183" y="2" width="160" height="20"/>
+                            <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateChapters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="w9Z-Cf-Bnj">
+                            <rect key="frame" x="183" y="41" width="160" height="20"/>
+                            <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of chapters:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="h6S-iS-EaW">
+                            <rect key="frame" x="0.0" y="39" width="175" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="175" id="jyw-jR-utx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="OriyaSangamMN" family="Oriya Sangam MN" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of release:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="wSe-C7-Lmg">
+                            <rect key="frame" x="0.0" y="0.0" width="175" height="24"/>
+                            <fontDescription key="fontDescription" name="OriyaSangamMN" family="Oriya Sangam MN" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="h6S-iS-EaW" firstAttribute="top" secondItem="wSe-C7-Lmg" secondAttribute="bottom" constant="15" id="0eV-j7-uCt"/>
+                        <constraint firstItem="w9Z-Cf-Bnj" firstAttribute="leading" secondItem="h6S-iS-EaW" secondAttribute="trailing" constant="8" id="5PR-r6-Rob"/>
+                        <constraint firstItem="6Qh-FB-XQU" firstAttribute="centerY" secondItem="wSe-C7-Lmg" secondAttribute="centerY" id="9XD-07-RMr"/>
+                        <constraint firstItem="w9Z-Cf-Bnj" firstAttribute="centerY" secondItem="h6S-iS-EaW" secondAttribute="centerY" id="IDN-9l-Kwp"/>
+                        <constraint firstItem="6Qh-FB-XQU" firstAttribute="trailing" secondItem="w9Z-Cf-Bnj" secondAttribute="trailing" id="JRH-kx-8F6"/>
+                        <constraint firstItem="wSe-C7-Lmg" firstAttribute="trailing" secondItem="h6S-iS-EaW" secondAttribute="trailing" id="RXj-Z6-3oV"/>
+                        <constraint firstItem="wSe-C7-Lmg" firstAttribute="leading" secondItem="h6S-iS-EaW" secondAttribute="leading" id="T0u-dw-ld4"/>
+                        <constraint firstAttribute="trailing" secondItem="w9Z-Cf-Bnj" secondAttribute="trailing" id="V27-uX-Pkv"/>
+                        <constraint firstItem="h6S-iS-EaW" firstAttribute="leading" secondItem="EI9-Kn-70n" secondAttribute="leading" id="hVJ-lp-Rwz"/>
+                        <constraint firstAttribute="bottom" secondItem="w9Z-Cf-Bnj" secondAttribute="bottom" constant="-1" id="rBv-Wm-W6d"/>
+                        <constraint firstItem="6Qh-FB-XQU" firstAttribute="leading" secondItem="w9Z-Cf-Bnj" secondAttribute="leading" id="tFH-IJ-blB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="3QQ-6p-eNW"/>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="leading" secondItem="mTY-P6-yod" secondAttribute="leading" id="6ss-wF-5bF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EI9-Kn-70n" secondAttribute="bottom" constant="20" id="IQT-F0-ez9"/>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="leading" secondItem="EI9-Kn-70n" secondAttribute="leading" id="XI5-DL-6ji"/>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="trailing" secondItem="mTY-P6-yod" secondAttribute="trailing" id="YSH-eq-lpZ"/>
+                <constraint firstItem="mTY-P6-yod" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="e3e-wT-sDJ"/>
+                <constraint firstItem="mTY-P6-yod" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="gTl-Du-MAM"/>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="top" secondItem="mTY-P6-yod" secondAttribute="bottom" constant="15" id="gdV-l9-phh"/>
+                <constraint firstItem="EI9-Kn-70n" firstAttribute="firstBaseline" secondItem="82F-EJ-fii" secondAttribute="baseline" constant="20" id="h5Z-8o-tCG"/>
+                <constraint firstItem="mTY-P6-yod" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="hgc-2j-4hK"/>
+                <constraint firstItem="82F-EJ-fii" firstAttribute="trailing" secondItem="EI9-Kn-70n" secondAttribute="trailing" id="jiS-bP-rLz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="140" y="150.67466266866569"/>
+        </view>
+    </objects>
+</document>
