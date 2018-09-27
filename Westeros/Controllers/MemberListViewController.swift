@@ -26,6 +26,7 @@ class MemberListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +36,6 @@ class MemberListViewController: UIViewController {
         title = "Characters"
     }
 
-    // MARK: - Lyfe Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

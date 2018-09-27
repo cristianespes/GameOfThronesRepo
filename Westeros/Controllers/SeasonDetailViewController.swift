@@ -35,6 +35,7 @@ class SeasonDetailViewController: UIViewController {
         super.viewWillAppear(animated)
 
         syncModelWithView()
+        setupUI()
     }
     
     func syncModelWithView() {
@@ -49,6 +50,18 @@ class SeasonDetailViewController: UIViewController {
         
         chaptersLabel.text = "\(model.count)"
         title = model.name
+    }
+    
+    // MARK: - SetupUI
+    func setupUI() {
+        let episodesButton = UIBarButtonItem(title: "Episodes", style: .plain, target: self, action: #selector(displayEpisodes))
+        
+        navigationItem.rightBarButtonItem = episodesButton
+    }
+    
+    @objc func displayEpisodes() {
+        let episodeListViewController = EpisodeListViewController(episodes: model.sortedEpisodes)
+        navigationController?.pushViewController(episodeListViewController, animated: true)
     }
 }
 
