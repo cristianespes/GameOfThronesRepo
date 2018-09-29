@@ -84,15 +84,47 @@ class SeasonListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let season = model[indexPath.row]
+        let theSeason = season(at: indexPath.row)
         
-        // Crear el controlador del detalle de esa casa
-        let seasonDetailViewController = SeasonDetailViewController(model: season)
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            delegate?.seasonListViewController(self, didSelectSeason: theSeason)
+            
+            // Enviar una notificacion
+            let nc = NotificationCenter.default
+            let notification = Notification(name: .seasonDidChangeNotification, object: self, userInfo: [Constants.episodesKey: theSeason.sortedEpisodes])
+            // Enviar notificacion
+            nc.post(notification)
+        } else {
+            // Crear el controlador del detalle de esa casa
+            let seasonDetailViewController = SeasonDetailViewController(model: theSeason)
+            navigationController?.pushViewController(seasonDetailViewController, animated: true)
+        }
         
-        // Push a la nueva vista (apilar controladores)
-        navigationController?.pushViewController(seasonDetailViewController, animated: true)
-        
-        delegate?.seasonListViewController(self, didSelectSeason: season)
+        // Guardamos la última casa
+        saveLastSelectedSeason(at: indexPath.row)
     }
     
+}
+
+// MARK: - Persistence (UserDefaults)
+extension SeasonListViewController {
+    // Guardar la última casa seleccionada
+    func saveLastSelectedSeason(at row: Int) {
+        let userDefaults = UserDefaults.standard
+        // Lo inserta en el diccionario
+        userDefaults.set(row, forKey: Constants.lastSeasonKey)
+        // Guardar
+        userDefaults.synchronize() // Por si acaso
+    }
+    
+    // Recuperar la última casa seleccionada
+    func lastSelectedSeason() -> Season {
+        let userDefaults = UserDefaults.standard
+        let row = userDefaults.integer(forKey: Constants.lastSeasonKey) // Value 0 by default
+        return season(at: row)
+    }
+    
+    func season(at index: Int) -> Season {
+        return model[index]
+    }
 }

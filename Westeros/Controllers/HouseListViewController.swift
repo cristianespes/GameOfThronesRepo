@@ -27,7 +27,7 @@ class HouseListViewController: UITableViewController {
         self.model = model
         
         super.init(nibName: nil, bundle: nil)
-        title = "Westeros"
+        title = "Houses"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -99,14 +99,20 @@ class HouseListViewController: UITableViewController {
         // Modal
         //present(houseDetailViewController, animated: true, completion: nil)
         
-        // Avisar al delegado
-        delegate?.houseListViewController(self, didSelectHouse: theHouse)
-        
-        // Enviar una notificacion
-        let nc = NotificationCenter.default
-        let notification = Notification(name: .houseDidChangeNotification, object: self, userInfo: [Constants.houseKey : theHouse, Constants.membersKey: theHouse.sortedMembers])
-        // Enviar notificacion
-        nc.post(notification)
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            // Avisar al delegado
+            delegate?.houseListViewController(self, didSelectHouse: theHouse)
+            
+            // Enviar una notificacion
+            let nc = NotificationCenter.default
+            let notification = Notification(name: .houseDidChangeNotification, object: self, userInfo: [Constants.houseKey : theHouse, Constants.membersKey: theHouse.sortedMembers])
+            // Enviar notificacion
+            nc.post(notification)
+        } else {
+            // Crear el controlador del detalle de esa casa
+            let houseDetailViewController = HouseDetailViewController(model: theHouse)
+            navigationController?.pushViewController(houseDetailViewController, animated: true)
+        }
         
         // Guardamos la última casa
         saveLastSelectedHouse(at: indexPath.row)

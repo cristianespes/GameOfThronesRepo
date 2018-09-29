@@ -54,6 +54,7 @@
 		19FB8A4A215A93E2008A002A /* SeasonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19FB8A48215A93E2008A002A /* SeasonDetailViewController.xib */; };
 		19FB8A4D215AB630008A002A /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB8A4B215AB630008A002A /* MemberDetailViewController.swift */; };
 		19FB8A4E215AB630008A002A /* MemberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19FB8A4C215AB630008A002A /* MemberDetailViewController.xib */; };
+		19FE2CF9215F9066006150FD /* WesterosTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FE2CF8215F9066006150FD /* WesterosTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		19FB8A48215A93E2008A002A /* SeasonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonDetailViewController.xib; sourceTree = "<group>"; };
 		19FB8A4B215AB630008A002A /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
 		19FB8A4C215AB630008A002A /* MemberDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberDetailViewController.xib; sourceTree = "<group>"; };
+		19FE2CF8215F9066006150FD /* WesterosTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WesterosTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				1994C7CB2152EC2D00E51424 /* Extra */,
+				19FE2CF8215F9066006150FD /* WesterosTabBarController.swift */,
 				19012504215059D1001A7E73 /* HouseListViewController.swift */,
 				19012505215059D1001A7E73 /* HouseListViewController.xib */,
 				19BA826B2149A31F008EB623 /* HouseDetailViewController.swift */,
@@ -404,6 +407,7 @@
 				1994C7D22152F2D900E51424 /* HouseCollectionViewCell.swift in Sources */,
 				1938FC73215189AB009D09BE /* MemberListViewController.swift in Sources */,
 				1994C7C92152DF3100E51424 /* HouseCell.swift in Sources */,
+				19FE2CF9215F9066006150FD /* WesterosTabBarController.swift in Sources */,
 				1979DA5E2159872E004B02B1 /* SeasonCell.swift in Sources */,
 				19E77FC4215D3C5400474796 /* EpisodeDetailViewController.swift in Sources */,
 				1942F5022141BD99009210B7 /* House.swift in Sources */,
@@ -576,6 +580,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

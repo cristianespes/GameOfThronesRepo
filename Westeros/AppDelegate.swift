@@ -22,31 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         let houses = Repository.local.houses
         let seasons = Repository.local.seasons
         
-        /*
-        // 2 - Crear controladores
-        /*var controllers = [UIViewController]()
-        // vc: [HouseDetailViewController]( = []
-        for house in houses {
-            controllers.append(HouseDetailViewController(model: house).wrappredInNavigation())
-        }*/
-        let controllers = houses.map {
-            HouseDetailViewController(model: $0).wrappredInNavigation()
-        }*/
         
+        // 2 - Crear controladores del SplitViewController
         
         // MasterViewController
         let houseListViewController = HouseListViewController(model: houses)
         let lastHouseSelected = houseListViewController.lastSelectedHouse()
         
         let seasonListViewController = SeasonListViewController(model: seasons)
+        let lastSeasonSelected = seasonListViewController.lastSelectedSeason()
         
         // DetailViewController
         let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
-        //let seasonDetailViewController = SeasonDetailViewController(model: seasons.first!)
+        let seasonDetailViewController = SeasonDetailViewController(model: lastSeasonSelected)
         
         // Asignar delegados
         houseListViewController.delegate = houseDetailViewController
-        //seasonListViewController.delegate = seasonDetailViewController
+        seasonListViewController.delegate = seasonDetailViewController
+        
+        
+        // 3 - Crear combinador del TabBarController
+        let tabBarViewController = WesterosTabBarController(houses: houseListViewController, seasons: seasonListViewController)
+        
         
         print("Dispositivo: \(UIDevice.current.model)")
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -55,37 +52,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
             print("Ejecuta como iPhone")
         }
         
-        // Crear el combinador, es decir, el UISplitViewController
+
+        // 4 - Crear combinador del SplitViewController
         let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [
-            houseListViewController.wrappredInNavigation(),
+            tabBarViewController,
             houseDetailViewController.wrappredInNavigation()
         ]
         
+        // Ajustes del SplitView
         splitViewController.preferredDisplayMode = .allVisible
         splitViewController.preferredPrimaryColumnWidthFraction = 0.40
         splitViewController.maximumPrimaryColumnWidth = 300
+
         
-        // 3 - Crear los Navigation
-        //let starkNC = starkVC.wrappredInNavigation()
-        //let lannisterNC = lannisterVC.wrappredInNavigation() // Devuelve un nuevo NC
-        let seasonListNC = seasonListViewController.wrappredInNavigation()
-        //let seasonDetailNC = seasonDetailViewController.wrappredInNavigation()
-        
-        // 3 - Crear combinador
-        // Uso de TabBar
-//        let tabBarVC = UITabBarController()
-//        tabBarVC.viewControllers = controllers
-        
-        
-        // 3 - Asignar el rootVC
-//        let rootViewController = tabBarVC
-        let rootViewController = splitViewController//seasonListNC
-        
-        /* CollectionView */
-//        let houseCollectionViewController = HouseCollectionViewController(model: houses)
-//        let rootViewController = houseCollectionViewController
-        /* CollectionView */
+        // 5 - Asignar el rootVC
+        let rootViewController = splitViewController
         
         window?.rootViewController = rootViewController
         

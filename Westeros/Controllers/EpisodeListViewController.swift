@@ -14,7 +14,7 @@ class EpisodeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Initialization
-    let episodes: [Episode]
+    var episodes: [Episode]
     
     init(episodes: [Episode]) {
         self.episodes = episodes
@@ -37,6 +37,40 @@ class EpisodeListViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         title = "Episodes"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Nos damos de alta en las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(episodesDidChange), name: .seasonDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Nos damos de baja las notificaciones
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Notifications
+    @objc func episodesDidChange(notification: Notification) {
+        // Sacar la información y extraer la casa
+        guard let info = notification.userInfo, let episodes = info[Constants.episodesKey] as? [Episode] else { return }
+        // Actualizar el modelo
+        self.episodes = episodes
+        // Sincronizar modelo - vista
+        tableView.reloadData()
+        
+        syncModelWithView()
+    }
+    
+    // MARK: - Sync
+    func syncModelWithView() {
+        let backItem = UIBarButtonItem()
+        backItem.title = navigationItem.title
+        navigationItem.backBarButtonItem = backItem
     }
     
     

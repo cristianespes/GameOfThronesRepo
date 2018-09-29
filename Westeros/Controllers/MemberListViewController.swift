@@ -86,7 +86,7 @@ extension MemberListViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         }
         // Sincronizar modelo-vista (person-cell)
-        cell?.textLabel?.text = person.name
+        cell?.textLabel?.text = person.fullName
         cell?.detailTextLabel?.text = person.alias
         
         return cell!

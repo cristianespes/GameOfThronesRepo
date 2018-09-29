@@ -13,4 +13,9 @@ enum Constants {
     static let houseKey = "HouseKey"
     static let membersKey = "MembersKey"
     static let lastHouseKey = "lastHouseKey"
+    
+    static let seasonDidChangeNotificationName = "SeasonDidChange"
+    static let seasonKey = "SeasonKey"
+    static let episodesKey = "EpisodesKey"
+    static let lastSeasonKey = "lastSeasonKey"
 }
