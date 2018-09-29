@@ -39,7 +39,7 @@ class SeasonDetailViewController: UIViewController {
     }
     
     func syncModelWithView() {
-        seasonLabel.text = "model.name"
+        seasonLabel.text = model.name
         seasonImage.image = model.image
         
         let dateStringFormatter = DateFormatter()

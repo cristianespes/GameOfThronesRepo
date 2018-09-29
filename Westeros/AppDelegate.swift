@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Delay of LaunchScreen
+        Thread.sleep(forTimeInterval: 3.0)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // 1 - Crear el modelo
@@ -43,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         
         // 3 - Crear combinador del TabBarController
         let tabBarViewController = WesterosTabBarController(houses: houseListViewController, seasons: seasonListViewController)
+        
+        // Personalización de TabBarController
+        tabBarViewController.tabBar.barTintColor = .burlywood
+        tabBarViewController.tabBar.unselectedItemTintColor = .white
         
         
         print("Dispositivo: \(UIDevice.current.model)")
