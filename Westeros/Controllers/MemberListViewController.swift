@@ -30,6 +30,8 @@ class MemberListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerCustomCell()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -69,6 +71,14 @@ class MemberListViewController: UIViewController {
         backItem.title = navigationItem.title
         navigationItem.backBarButtonItem = backItem
     }
+    
+    // MARK: - Register Cell
+    func registerCustomCell() {
+        // Siempre que se haga uso de celdas personalizadas, primero se deben registrar
+        let nib = UINib(nibName: "SeasonCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: SeasonCell.reuseIdentifier)
+    }
+    
 }
 
 extension MemberListViewController: UITableViewDataSource {
@@ -77,23 +87,25 @@ extension MemberListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "PersonCell"
-        // Descubir cual es la Person
-        let person = model[indexPath.row]
-        // Crear la celda (o nos la dan desde caché)
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        }
-        // Sincronizar modelo-vista (person-cell)
-        cell?.textLabel?.text = person.fullName
-        cell?.detailTextLabel?.text = person.alias
         
-        return cell!
+        let person = model[indexPath.row] as Person
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SeasonCell.reuseIdentifier) as! SeasonCell
+        
+        // Sincronizar celda (view) y season (model)
+        cell.seasonImageView.image = person.image
+        cell.titleLabel.text = person.fullName
+        cell.subtitleLabel.text = person.alias
+        
+        return cell
     }
 }
 
 extension MemberListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let member = model[indexPath.row]
         // Crear el controlador del detalle de esa casa

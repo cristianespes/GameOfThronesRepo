@@ -73,7 +73,7 @@ class EpisodeListViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem
     }
     
-    
+    // MARK: - Register Cell
     func registerCustomCell() {
         // Siempre que se haga uso de celdas personalizadas, primero se deben registrar
         let nib = UINib(nibName: "SeasonCell", bundle: nil)
