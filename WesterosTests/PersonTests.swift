@@ -19,8 +19,8 @@ class PersonTest: XCTestCase {
     override func setUp() {
         starkSigil = Sigil(description: "Lobo Huargo", image: UIImage())
         starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming", url: URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!)
-        ned = Person(name: "Eddard", alias: "Ned", house: starkHouse)
-        arya = Person(name: "Arya", house: starkHouse)
+        ned = Person(name: "Eddard", alias: "Ned", house: starkHouse, image: UIImage())
+        arya = Person(name: "Arya", house: starkHouse, image: UIImage())
     }
 
     override func tearDown() {
@@ -42,7 +42,7 @@ class PersonTest: XCTestCase {
         XCTAssertEqual(ned, ned)
         
         //2. Igualdad
-        let eddard = Person(name: "Eddard", alias: "Ned", house: starkHouse)
+        let eddard = Person(name: "Eddard", alias: "Ned", house: starkHouse, image: UIImage())
         XCTAssertEqual(eddard, ned)
         
         //3. Desigualdad

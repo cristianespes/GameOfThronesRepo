@@ -38,8 +38,8 @@ class MemberDetailViewController: UIViewController {
     
     func syncModelWithView() {
         nameLabel.text = model.fullName
-        //personImage.image = model.image
-        personImage.backgroundColor = .red
+        personImage.image = model.image
+        personImage.contentMode = .scaleAspectFit
         aliasLabel.text = model.alias
         
         title = model.name

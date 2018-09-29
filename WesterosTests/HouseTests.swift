@@ -31,9 +31,9 @@ class HouseTests: XCTestCase {
         starkHouse = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", url: starkUrl)
         lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Oye mi rugido", url: lannisterUrl)
         
-        robb = Person(name: "Robb", alias: "El joven lobo", house: starkHouse)
-        arya = Person(name: "Arya", house: starkHouse)
-        tyrion = Person(name: "Tyrion", alias: "El enano", house: lannisterHouse)
+        robb = Person(name: "Robb", alias: "El joven lobo", house: starkHouse, image: UIImage())
+        arya = Person(name: "Arya", house: starkHouse, image: UIImage())
+        tyrion = Person(name: "Tyrion", alias: "El enano", house: lannisterHouse, image: UIImage())
         
     }
 
