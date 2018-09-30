@@ -57,6 +57,10 @@ class SeasonDetailViewController: UIViewController {
         let episodesButton = UIBarButtonItem(title: "Episodes", style: .plain, target: self, action: #selector(displayEpisodes))
         
         navigationItem.rightBarButtonItem = episodesButton
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
     }
     
     @objc func displayEpisodes() {

@@ -63,6 +63,10 @@ class HouseDetailViewController: UIViewController {
         
         // Añadir el botón a la vista
         navigationItem.rightBarButtonItems = [wikiButton, membersButton] // Apareceran de izquierda a derecha
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
     }
     
     @objc func displayWiki() {

@@ -30,7 +30,7 @@ class RepositoryTests: XCTestCase {
     
     func testLocalRepositoryHouseCreation() {
         XCTAssertNotNil(localHouses)
-        XCTAssertEqual(localHouses.count, 5)
+        XCTAssertEqual(localHouses.count, 8)
         XCTAssertGreaterThan(localHouses.count, 0)
     }
     

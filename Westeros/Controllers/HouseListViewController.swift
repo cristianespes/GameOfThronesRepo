@@ -39,8 +39,21 @@ class HouseListViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = true
+        tableView.alwaysBounceVertical = true
         
         registerCustomCell()
+        
+        setupUI()
+    }
+    
+    func setupUI() {
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.maroon
+            ]
+        }
     }
     
     func registerCustomCell() {
