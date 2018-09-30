@@ -53,5 +53,4 @@ class EpisodeDetailViewController: UIViewController {
         
         title = "Episode \(episode.number)"
     }
-
 }

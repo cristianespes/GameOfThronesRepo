@@ -71,8 +71,6 @@ class WikiViewController: UIViewController {
         backItem.title = model.name
         navigationItem.backBarButtonItem = backItem
         
-        //navigationController?.navigationBar.backItem?.title = model.name
-        
         title = model.name
         let request: URLRequest = URLRequest(url: model.wikiUrl)
         loadingView.startAnimating()

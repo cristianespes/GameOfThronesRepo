@@ -44,5 +44,4 @@ class MemberDetailViewController: UIViewController {
         
         title = model.name
     }
-    
 }

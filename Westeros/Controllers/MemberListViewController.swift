@@ -62,7 +62,7 @@ class MemberListViewController: UIViewController {
         self.model = members
         // Sincronizar modelo - vista
         tableView.reloadData()
-        
+        // Actualizamos la vista
         syncModelWithView()
     }
     
@@ -79,7 +79,6 @@ class MemberListViewController: UIViewController {
         let nib = UINib(nibName: "SeasonCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SeasonCell.reuseIdentifier)
     }
-    
 }
 
 extension MemberListViewController: UITableViewDataSource {

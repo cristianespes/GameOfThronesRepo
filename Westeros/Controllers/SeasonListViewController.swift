@@ -39,7 +39,6 @@ class SeasonListViewController: UITableViewController {
     }
     
     func registerCustomCell() {
-        // Siempre que se haga uso de celdas personalizadas, primero se deben registrar
         let nib = UINib(nibName: "SeasonCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SeasonCell.reuseIdentifier)
     }
@@ -55,7 +54,7 @@ class SeasonListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Descubrir el item (season) que tenemos que mostrar
+        // Item (season) que tenemos que mostrar
         let season = model[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SeasonCell.reuseIdentifier) as! SeasonCell
@@ -103,7 +102,6 @@ class SeasonListViewController: UITableViewController {
         // Guardamos la última casa
         saveLastSelectedSeason(at: indexPath.row)
     }
-    
 }
 
 // MARK: - Persistence (UserDefaults)

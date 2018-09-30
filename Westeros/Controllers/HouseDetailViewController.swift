@@ -25,16 +25,13 @@ class HouseDetailViewController: UIViewController {
         self.model = model
         
         // 2 - Llamar a la superclase
-        //super.init(nibName: "HouseDetailViewController", bundle: Bundle.main)
-        // Podemos poner nil porque buscará un archivo xib con el mismo nombre que esta clase
         super.init(nibName: nil, bundle: nil)
         
         // 3 - Dar valores a las propiedades de la super clase
         title = model.name
     }
     
-    // Chapuza de Apple relacionada con los nil
-    // Este init es el que utilizan los StoryBoards
+    // Este init es el que utilizan los StoryBoards (chapuza de Apple)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -65,7 +62,7 @@ class HouseDetailViewController: UIViewController {
         let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
         
         // Añadir el botón a la vista
-        navigationItem.rightBarButtonItems = [wikiButton, membersButton] // Apareceran de izda a derecha
+        navigationItem.rightBarButtonItems = [wikiButton, membersButton] // Apareceran de izquierda a derecha
     }
     
     @objc func displayWiki() {
@@ -80,7 +77,6 @@ class HouseDetailViewController: UIViewController {
         let memberListViewController = MemberListViewController(model: model.sortedMembers)
         navigationController?.pushViewController(memberListViewController, animated: true)
     }
-    
 }
 
 extension HouseDetailViewController: HouseListViewControllerDelegate {
@@ -88,6 +84,4 @@ extension HouseDetailViewController: HouseListViewControllerDelegate {
         self.model = house
         syncModelWithView()
     }
-    
-    
 }

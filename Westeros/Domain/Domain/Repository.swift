@@ -39,55 +39,65 @@ final class LocalFactory: HouseFactory {
         let targaryenSigil = Sigil(description: "Sable, a dragon thrice-headed gules", image: UIImage(named: "targaryenSmall.jpg")!)
         let arrynSigil = Sigil(description: "A white falcon volant and crescent moon on a blue field.", image: UIImage(named: "House-Arryn-Main-Shield.png")!)
         let greyjoySigil = Sigil(description: "A golden kraken on a black field", image: UIImage(named: "House-Greyjoy-Main-Shield")!)
+        let boltonSigil = Sigil(description: "A red flayed man, hanging upside-down on a white X-shaped cross, on a black background", image: UIImage(named: "House_Bolton.png")!)
+        let tullySigil = Sigil(description: "A silver trout leaping on a red and blue background", image: UIImage(named: "House-Tully-Main-Shield.png")!)
+        let freySigil = Sigil(description: "The two stone grey towers and bridge of the Twins, on a dark grey field, surmounting an escutcheon of blue water", image: UIImage(named: "House-Frey-Main-Shield.png")!)
         
         let starkUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Stark")!
         let lannisterUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Lannister")!
         let targaryenUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Targaryen")!
         let arrynUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Arryn")!
-        let greyjoyUrl  = URL(string: "https://awoiaf.westeros.org/index.php/House_Greyjoy")!
+        let greyjoyUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Greyjoy")!
+        let boltonUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Bolton")!
+        let tullyUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Tully")!
+        let freyUrl = URL(string: "https://awoiaf.westeros.org/index.php/House_Frey")!
         
         let starkHouse = House(name: "Stark", sigil: starkSigil, words: "Winter is coming", url: starkUrl)
         let lannisterHouse = House(name: "Lannister", sigil: lannisterSigil, words: "Hear me roar!", url: lannisterUrl)
         let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fire and blood", url: targaryenUrl)
         let arrynHouse = House(name: "Arryn", sigil: arrynSigil, words: "As high as honor", url: arrynUrl)
-        let greyjoyHouse = House(name: "Greyjoy", sigil: greyjoySigil, words: "We Do Not Sow", url: greyjoyUrl)
+        let greyjoyHouse = House(name: "Greyjoy", sigil: greyjoySigil, words: "We do not sow", url: greyjoyUrl)
+        let boltonHouse = House(name: "Bolton", sigil: boltonSigil, words: "Our blades are sharp", url: boltonUrl)
+        let tullyHouse = House(name: "Tully", sigil: tullySigil, words: "Family, duty, honor", url: tullyUrl)
+        let freyHouse = House(name: "Frey", sigil: freySigil, words: "We stand together", url: freyUrl)
+        
         
         // Characters creation
-        // Stark House
+        // House Stark
         _ = Person(name: "Robb", alias: "The young wolf", house: starkHouse, image: UIImage(named: "Robb_Stark")!)
         _ = Person(name: "Arya", alias: "The wolf girl", house: starkHouse, image: UIImage(named: "Arya_Stark")!)
         _ = Person(name: "Jon Snow", alias: "The bastard of winterfell", house: starkHouse, image: UIImage(named: "Jon_Nieve")!)
-        // Lannister House
+        // House Lannister
         _ = Person(name: "Tyrion", alias: "The halfman", house: lannisterHouse, image: UIImage(named: "Tyrion_Lannister")!)
         _ = Person(name: "Cersei", alias: "Queen mother", house: lannisterHouse, image: UIImage(named: "Cersei_Lannister")!)
         _ = Person(name: "Jaime", alias: "Kingslayer", house: lannisterHouse, image: UIImage(named: "Jaime_Lannister")!)
-        // Targaryen House
+        // House Targaryen
         _ = Person(name: "Daenerys", alias: "The mother of dragons", house: targaryenHouse, image: UIImage(named: "Daenerys_Targaryen")!)
         _ = Person(name: "Aerys II", alias: "The mad king", house: targaryenHouse, image: UIImage(named: "Aerys_II_Targaryen")!)
         _ = Person(name: "Rhaegar Targaryen", alias: "The lLast dragon", house: targaryenHouse, image: UIImage(named: "Rhaegar_Targaryen")!)
-        // Arryn House
+        // House Arryn
         _ = Person(name: "Robin", alias: "Sweetrobin", house: arrynHouse, image: UIImage(named: "Robin_Arryn")!)
         // Greyjoy House
         _ = Person(name: "Euron", alias: "Son of the sea wind", house: greyjoyHouse, image: UIImage(named: "Euron_Greyjoy")!)
         _ = Person(name: "Theon", alias: "Little Theon", house: greyjoyHouse, image: UIImage(named: "Theon_Greyjoy")!)
+        // House Bolton
+        _ = Person(name: "Roose", alias: "Lord of the Dreadfort,", house: boltonHouse, image: UIImage(named: "Roose_Bolton")!)
+        _ = Person(name: "Ramsay", alias: "The bastard of Bolton", house: boltonHouse, image: UIImage(named: "Ramsay_Bolton")!)
+        // House Tully
+        _ = Person(name: "Catelyn", alias: "Catelyn Stark", house: tullyHouse, image: UIImage(named: "Catelyn_Stark")!)
+        _ = Person(name: "Brynden", alias: "The Blackfish", house: tullyHouse, image: UIImage(named: "Brynden_Tully")!)
+        // House Frey
+        _ = Person(name: "Walder", alias: "Lord of the Crossing", house: freyHouse, image: UIImage(named: "Walder_Frey")!)
+        _ = Person(name: "Lothar", alias: "Lame Lothar", house: freyHouse, image: UIImage(named: "Lothar_Frey")!)
         
-        // Add characters to houses
-        /*starkHouse.add(persons: robb, arya)
-        lannisterHouse.add(persons: tyrion, cersei, jaime)
-        targaryenHouse.add(persons: dani)*/
-        
-        return [starkHouse, lannisterHouse, targaryenHouse, arrynHouse, greyjoyHouse].sorted()
+        return [starkHouse, lannisterHouse, targaryenHouse, arrynHouse, greyjoyHouse, boltonHouse, tullyHouse, freyHouse].sorted()
     }
     
     func house(named name: String) -> House? {
-        //return houses.filter { $0.name.lowercased() == name.lowercased() }.first
-        //return houses.first(where: { $0.name.lowercased() == name.lowercased() })
         return houses.first{ $0.name.lowercased() == name.lowercased() }
     }
     
     func house(named name: Family) -> House? {
-        //return houses.filter { $0.name.lowercased() == name.lowercased() }.first
-        //return houses.first(where: { $0.name.lowercased() == name.lowercased() })
         return houses.first{ $0.name.lowercased() == name.rawValue.lowercased() }
     }
     
@@ -100,8 +110,12 @@ enum Family: String {
     case Stark
     case Lannister
     case Targaryen
+    case Arryn
+    case Greyjoy
+    case Bolton
+    case Tully
+    case Frey
 }
-
 
 extension LocalFactory: SeasonFactory {
     
@@ -109,37 +123,24 @@ extension LocalFactory: SeasonFactory {
         
         // Season creation here
         let date1s1 = "04/17/2011".formatterDateFromString()
-        
         let season1 = Season(number: 1, releaseDate: date1s1, image: UIImage(named: "GoT_Season_1")!)
         
-        
         let date1s2 = "04/01/2012".formatterDateFromString()
-        
         let season2 = Season(number: 2, releaseDate: date1s2, image: UIImage(named: "GoT_Season_2")!)
         
-    
         let date1s3 = "03/31/2013".formatterDateFromString()
-        
         let season3 = Season(number: 3, releaseDate: date1s3, image: UIImage(named: "GoT_Season_3")!)
         
-        
         let date1s4 = "04/06/2014".formatterDateFromString()
-        
         let season4 = Season(number: 4, releaseDate: date1s4, image: UIImage(named: "GoT_Season_4")!)
         
-        
         let date1s5 = "04/12/2015".formatterDateFromString()
-        
         let season5 = Season(number: 5, releaseDate: date1s5, image: UIImage(named: "GoT_Season_5")!)
         
-        
         let date1s6 = "04/24/2016".formatterDateFromString()
-        
         let season6 = Season(number: 6, releaseDate: date1s6, image: UIImage(named: "GoT_Season_6")!)
         
-        
         let date1s7 = "07/16/2016".formatterDateFromString()
-        
         let season7 = Season(number: 7, releaseDate: date1s7, image: UIImage(named: "GoT_Season_7")!)
         
         

@@ -52,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         tabBarViewController.tabBar.tintColor = .maroon
         if #available(iOS 10.0, *) {
             tabBarViewController.tabBar.unselectedItemTintColor = .white
-        } else {
-            // Fallback on earlier versions
         }
         
 

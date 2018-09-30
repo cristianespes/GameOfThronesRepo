@@ -79,7 +79,6 @@ class EpisodeListViewController: UIViewController {
         let nib = UINib(nibName: "SeasonCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SeasonCell.reuseIdentifier)
     }
-    
 }
 
 extension EpisodeListViewController: UITableViewDataSource {

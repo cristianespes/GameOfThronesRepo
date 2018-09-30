@@ -12,7 +12,7 @@ protocol HouseListViewControllerDelegate {
     // Should
     // Will
     // Did
-    // El primero parámetro de las funciones del delegate es SIEMPRE el objeto
+    // El primer parámetro de las funciones del delegate es SIEMPRE el objeto
     func houseListViewController(_ vc: HouseListViewController, didSelectHouse house: House)
 }
 
@@ -39,6 +39,7 @@ class HouseListViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        
         registerCustomCell()
     }
     
@@ -61,12 +62,7 @@ class HouseListViewController: UITableViewController {
         
         // Descubrir el item (casa) que tenemos que mostrar
         let house = model[indexPath.row]
-        
-        // Crear la celda (o que nos la den del caché)
-        /*var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellId)
-        }*/
+
         let cell = tableView.dequeueReusableCell(withIdentifier: HouseCell.reuseIdentifier) as! HouseCell
         
         // Sincronizar celda (view) y casa (model)

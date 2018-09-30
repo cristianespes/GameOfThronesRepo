@@ -34,12 +34,27 @@ class WesterosTabBarController: UITabBarController {
     }
     
     func createTabBars() {
-        self.viewControllers = [houses.wrappredInNavigation(), seasons.wrappredInNavigation()]
+        let housesNC = houses.wrappredInNavigation()
+        let seasonsNC = seasons.wrappredInNavigation()
+        /*if #available(iOS 11.0, *) {
+            housesNC.navigationBar.prefersLargeTitles = true
+            housesNC.navigationItem.largeTitleDisplayMode = .never
+            housesNC.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.maroon
+                ]
+            
+            seasonsNC.navigationBar.prefersLargeTitles = true
+            seasonsNC.navigationItem.largeTitleDisplayMode = .never
+            seasonsNC.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.maroon
+            ]
+        }*/
+        self.viewControllers = [housesNC, seasonsNC]
         
         tabBar.items![0].image = UIImage(named: "ShieldIcon")
+        tabBar.items![0].title = houses.title?.uppercased()
         tabBar.items![1].image = UIImage(named: "SeasonIcon")
-        
-        title = viewControllers?.first?.title
+        tabBar.items![1].title = seasons.title?.uppercased()
     }
     
     // MARK: - TabBar Delegate
@@ -47,12 +62,12 @@ class WesterosTabBarController: UITabBarController {
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             switch item.title! {
-            case houses.title:
+            case houses.title?.uppercased():
                 let houseDetailViewController = HouseDetailViewController(model: houses.lastSelectedHouse())
                 
                 houses.delegate = houseDetailViewController
                 splitViewController?.showDetailViewController(houseDetailViewController.wrappredInNavigation(), sender: nil)
-            case seasons.title:
+            case seasons.title?.uppercased():
                 let seasonDetailViewController = SeasonDetailViewController(model: seasons.lastSelectedSeason())
                 seasons.delegate = seasonDetailViewController
                 splitViewController?.showDetailViewController(seasonDetailViewController.wrappredInNavigation(), sender: nil)
