@@ -51,7 +51,7 @@ extension House {
 
 extension House {
     var proxyForEquality: String {
-        return "\(name)\(words)\(count)"
+        return "\(name)\(words)"
     }
 }
 

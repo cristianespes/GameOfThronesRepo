@@ -73,12 +73,12 @@ class RepositoryTests: XCTestCase {
     
     func testLocalRepositorySeasonFiltering() {
         var filtered = Repository.local.seasons { $0.count == 3 }
-        XCTAssertEqual(filtered.count, 7)
+        XCTAssertEqual(filtered.count, 6)
         
         filtered = Repository.local.seasons { $0.count == 100 }
         XCTAssertTrue(filtered.isEmpty)
         
         filtered = Repository.local.seasons { $0.name == "Season 1" }
-        XCTAssertEqual(filtered[0].count, 3)
+        XCTAssertEqual(filtered[0].count, 10)
     }
 }

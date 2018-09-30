@@ -18,12 +18,6 @@ final class Person {
     
     var alias: String {
         get {
-//            if let alias = _alias {
-//                // Existe y está guardado dentro de alias
-//                return alias
-//            } else {
-//                return ""
-//            }
             return _alias ?? ""
         }
     }
@@ -34,6 +28,8 @@ final class Person {
         _alias = alias
         self.house = house
         self.image = image
+        
+        self.house.add(person: self)
     }
     
 //    convenience init(name: String, house: House) {

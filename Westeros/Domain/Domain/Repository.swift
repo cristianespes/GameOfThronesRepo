@@ -47,17 +47,21 @@ final class LocalFactory: HouseFactory {
         let targaryenHouse = House(name: "Targaryen", sigil: targaryenSigil, words: "Fuego y Sangre", url: targaryenUrl)
         
         // Characters creation
-        let robb = Person(name: "Robb", alias: "El joven lobo", house: starkHouse, image: UIImage(named: "Robb_Stark")!)
-        let arya = Person(name: "Arya", house: starkHouse, image: UIImage(named: "Arya_Stark")!)
-        let tyrion = Person(name: "Tyrion", alias: "El enano", house: lannisterHouse, image: UIImage(named: "Tyrion_Lannister")!)
-        let cersei = Person(name: "Cersei", house: lannisterHouse, image: UIImage(named: "Cersei_Lannister")!)
-        let jaime = Person(name: "Jaime", alias: "El matareyes", house: lannisterHouse, image: UIImage(named: "Jaime_Lannister")!)
-        let dani = Person(name: "Daenerys", alias: "Madre de dragones", house: targaryenHouse, image: UIImage(named: "Daenerys_Targaryen")!)
+        // Stark House
+        _ = Person(name: "Robb", alias: "El joven lobo", house: starkHouse, image: UIImage(named: "Robb_Stark")!)
+        _ = Person(name: "Arya", house: starkHouse, image: UIImage(named: "Arya_Stark")!)
+        // Lannister House
+        _ = Person(name: "Tyrion", alias: "El enano", house: lannisterHouse, image: UIImage(named: "Tyrion_Lannister")!)
+        _ = Person(name: "Cersei", house: lannisterHouse, image: UIImage(named: "Cersei_Lannister")!)
+        _ = Person(name: "Jaime", alias: "El matareyes", house: lannisterHouse, image: UIImage(named: "Jaime_Lannister")!)
+        // Targaryen House
+        _ = Person(name: "Daenerys", alias: "The Mother of Dragons", house: targaryenHouse, image: UIImage(named: "Daenerys_Targaryen")!)
+        _ = Person(name: "Aerys II", alias: "The Mad King", house: targaryenHouse, image: UIImage(named: "Aerys_II_Targaryen")!)
         
         // Add characters to houses
-        starkHouse.add(persons: robb, arya)
+        /*starkHouse.add(persons: robb, arya)
         lannisterHouse.add(persons: tyrion, cersei, jaime)
-        targaryenHouse.add(persons: dani)
+        targaryenHouse.add(persons: dani)*/
         
         return [starkHouse, lannisterHouse, targaryenHouse].sorted()
     }

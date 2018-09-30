@@ -91,14 +91,6 @@ class HouseListViewController: UITableViewController {
         // Recoger la casa pulsada
         let theHouse = house(at: indexPath.row)
         
-        // Crear el controlador del detalle de esa casa
-        //let houseDetailViewController = HouseDetailViewController(model: house)
-        
-        // Push a la nueva vista (apilar controladores)
-        //navigationController?.pushViewController(houseDetailViewController, animated: true)
-        // Modal
-        //present(houseDetailViewController, animated: true, completion: nil)
-        
         if UIDevice.current.userInterfaceIdiom == .pad{
             // Avisar al delegado
             delegate?.houseListViewController(self, didSelectHouse: theHouse)

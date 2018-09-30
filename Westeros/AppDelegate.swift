@@ -49,15 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         
         // Personalización de TabBarController
         tabBarViewController.tabBar.barTintColor = .burlywood
+        tabBarViewController.tabBar.tintColor = .maroon
         tabBarViewController.tabBar.unselectedItemTintColor = .white
-        
-        
-        print("Dispositivo: \(UIDevice.current.model)")
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            print("Ejecuta como iPad")
-        } else {
-            print("Ejecuta como iPhone")
-        }
         
 
         // 4 - Crear combinador del SplitViewController

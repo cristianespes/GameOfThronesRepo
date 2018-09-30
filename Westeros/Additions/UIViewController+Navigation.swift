@@ -12,6 +12,8 @@ extension UIViewController {
     func wrappredInNavigation() -> UINavigationController {
         let navCon = UINavigationController(rootViewController: self)
         navCon.navigationBar.barTintColor = .burlywood
+        //navCon.navigationBar.tintColor = .saddlebrown
+        navCon.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.maroon]
         return navCon
     }
 }
