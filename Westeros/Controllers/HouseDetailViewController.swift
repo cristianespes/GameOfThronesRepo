@@ -51,7 +51,7 @@ class HouseDetailViewController: UIViewController {
     
     // MARK: - Sync
     func syncModelWithView() {
-        houseNameLabel.text = "\(model.name) House"
+        houseNameLabel.text = " House \(model.name)"
         sigilImageView.image = model.sigil.image
         sigilImageView.contentMode = .scaleAspectFit
         wordsLabel.text = model.words

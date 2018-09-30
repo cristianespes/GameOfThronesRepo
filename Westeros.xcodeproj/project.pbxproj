@@ -51,6 +51,8 @@
 		19E77FC1215D350E00474796 /* EpisodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E77FBF215D350E00474796 /* EpisodeListViewController.xib */; };
 		19E77FC4215D3C5400474796 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E77FC2215D3C5400474796 /* EpisodeDetailViewController.swift */; };
 		19E77FC5215D3C5400474796 /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19E77FC3215D3C5400474796 /* EpisodeDetailViewController.xib */; };
+		19EE80C22160DD8900527D9E /* House-Arryn-Main-Shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE80C12160DD8900527D9E /* House-Arryn-Main-Shield.png */; };
+		19EE80C42160DF9B00527D9E /* House-Greyjoy-Main-Shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EE80C32160DF9B00527D9E /* House-Greyjoy-Main-Shield.png */; };
 		19FB8A49215A93E2008A002A /* SeasonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB8A47215A93E2008A002A /* SeasonDetailViewController.swift */; };
 		19FB8A4A215A93E2008A002A /* SeasonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19FB8A48215A93E2008A002A /* SeasonDetailViewController.xib */; };
 		19FB8A4D215AB630008A002A /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FB8A4B215AB630008A002A /* MemberDetailViewController.swift */; };
@@ -117,6 +119,8 @@
 		19E77FBF215D350E00474796 /* EpisodeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeListViewController.xib; sourceTree = "<group>"; };
 		19E77FC2215D3C5400474796 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		19E77FC3215D3C5400474796 /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
+		19EE80C12160DD8900527D9E /* House-Arryn-Main-Shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "House-Arryn-Main-Shield.png"; sourceTree = "<group>"; };
+		19EE80C32160DF9B00527D9E /* House-Greyjoy-Main-Shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "House-Greyjoy-Main-Shield.png"; sourceTree = "<group>"; };
 		19FB8A47215A93E2008A002A /* SeasonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailViewController.swift; sourceTree = "<group>"; };
 		19FB8A48215A93E2008A002A /* SeasonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonDetailViewController.xib; sourceTree = "<group>"; };
 		19FB8A4B215AB630008A002A /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				19BA82722149A383008EB623 /* codeIsComing.png */,
 				19BA82712149A383008EB623 /* lannister.jpg */,
 				19BA82702149A383008EB623 /* targaryenSmall.jpg */,
+				19EE80C12160DD8900527D9E /* House-Arryn-Main-Shield.png */,
+				19EE80C32160DF9B00527D9E /* House-Greyjoy-Main-Shield.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				1994C7CF2152EC4900E51424 /* HouseCollectionViewController.xib in Resources */,
 				19BA826E2149A31F008EB623 /* HouseDetailViewController.xib in Resources */,
 				19012507215059D1001A7E73 /* HouseListViewController.xib in Resources */,
+				19EE80C22160DD8900527D9E /* House-Arryn-Main-Shield.png in Resources */,
 				1938FC74215189AB009D09BE /* MemberListViewController.xib in Resources */,
 				1994C7D32152F2D900E51424 /* HouseCollectionViewCell.xib in Resources */,
 				1979DA5B21598645004B02B1 /* SeasonListViewController.xib in Resources */,
@@ -380,6 +387,7 @@
 				1942F4E62141B373009210B7 /* Assets.xcassets in Resources */,
 				19BA82732149A383008EB623 /* targaryenSmall.jpg in Resources */,
 				19E77FC1215D350E00474796 /* EpisodeListViewController.xib in Resources */,
+				19EE80C42160DF9B00527D9E /* House-Greyjoy-Main-Shield.png in Resources */,
 				19E77FC5215D3C5400474796 /* EpisodeDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +592,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +611,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W9B4U9692J;
 				INFOPLIST_FILE = Westeros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

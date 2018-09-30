@@ -26,4 +26,14 @@ extension Date {
         }
         return date
     }
+    
+}
+
+extension String {
+    func formatterDateFromString() -> Date {
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "MM/dd/yyyy"
+        dateStringFormatter.timeZone = TimeZone(secondsFromGMT:0)
+        return dateStringFormatter.date(from: self)!
+    }
 }

@@ -30,7 +30,7 @@ class RepositoryTests: XCTestCase {
     
     func testLocalRepositoryHouseCreation() {
         XCTAssertNotNil(localHouses)
-        XCTAssertEqual(localHouses.count, 3)
+        XCTAssertEqual(localHouses.count, 5)
         XCTAssertGreaterThan(localHouses.count, 0)
     }
     
@@ -58,7 +58,7 @@ class RepositoryTests: XCTestCase {
         XCTAssertTrue(filtered.isEmpty)
         
         filtered = Repository.local.houses { $0.name == "Stark" }
-        XCTAssertEqual(filtered[0].count, 2)
+        XCTAssertEqual(filtered[0].count, 3)
     }
     
     func testLocalRepositorySeasonCreation() {
@@ -72,7 +72,7 @@ class RepositoryTests: XCTestCase {
     }
     
     func testLocalRepositorySeasonFiltering() {
-        var filtered = Repository.local.seasons { $0.count == 3 }
+        var filtered = Repository.local.seasons { $0.count == 10 }
         XCTAssertEqual(filtered.count, 6)
         
         filtered = Repository.local.seasons { $0.count == 100 }

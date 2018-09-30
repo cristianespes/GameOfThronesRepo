@@ -50,7 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         // Personalización de TabBarController
         tabBarViewController.tabBar.barTintColor = .burlywood
         tabBarViewController.tabBar.tintColor = .maroon
-        tabBarViewController.tabBar.unselectedItemTintColor = .white
+        if #available(iOS 10.0, *) {
+            tabBarViewController.tabBar.unselectedItemTintColor = .white
+        } else {
+            // Fallback on earlier versions
+        }
         
 
         // 4 - Crear combinador del SplitViewController
