@@ -83,4 +83,10 @@ class EpisodeTests: XCTestCase {
         XCTAssertLessThan(episode1, episode3)
     }
 
+    func testEpisodeHashable() {
+        XCTAssertNotNil(episode1.hashValue)
+        XCTAssertNotNil(episode2.hashValue)
+        XCTAssertNotNil(episode3.hashValue)
+    }
+    
 }

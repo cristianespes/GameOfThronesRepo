@@ -29,8 +29,8 @@ extension Episode {
         return "\(number)\(title)\(issueDate)\(season!.number)"
     }
     
-    var proxyForComparison: String {
-        return "\(number)\(season!.number)\(title)".lowercased()
+    var proxyForComparison: Date {
+        return issueDate
     }
 }
 

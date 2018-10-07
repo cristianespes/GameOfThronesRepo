@@ -34,6 +34,22 @@ class MemberDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         syncModelWithView()
+        
+        // Nos damos de alta en las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(membersDidChange), name: .houseDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // Baja en la notificación
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    // MARK: - Notifications
+    @objc func membersDidChange(notification: Notification) {
+        navigationController?.popViewController(animated: true)
     }
     
     func syncModelWithView() {

@@ -26,6 +26,12 @@ class MemberListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        // Baja en la notificación
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
     // MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,21 +53,17 @@ class MemberListViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(membersDidChange), name: .houseDidChangeNotification, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Nos damos de baja las notificaciones
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // MARK: - Notifications
     @objc func membersDidChange(notification: Notification) {
         // Sacar la información y extraer la casa
         guard let info = notification.userInfo, let members = info[Constants.membersKey] as? [Person] else { return }
+        
         // Actualizar el modelo
         self.model = members
-        // Sincronizar modelo - vista
+        
+        // Sincronizar las vistas
         tableView.reloadData()
+        
         // Actualizamos la vista
         syncModelWithView()
     }

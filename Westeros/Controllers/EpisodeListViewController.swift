@@ -26,6 +26,12 @@ class EpisodeListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        // Baja en la notificación
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
     // MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,19 +53,14 @@ class EpisodeListViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(episodesDidChange), name: .seasonDidChangeNotification, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Nos damos de baja las notificaciones
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // MARK: - Notifications
     @objc func episodesDidChange(notification: Notification) {
         // Sacar la información y extraer la casa
         guard let info = notification.userInfo, let episodes = info[Constants.episodesKey] as? [Episode] else { return }
+        
         // Actualizar el modelo
         self.episodes = episodes
+        
         // Sincronizar modelo - vista
         tableView.reloadData()
         

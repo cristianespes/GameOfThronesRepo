@@ -35,6 +35,22 @@ class EpisodeDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         syncModelWithView()
+        
+        // Nos damos de alta en las notificaciones
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(episodesDidChange), name: .seasonDidChangeNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Nos damos de baja las notificaciones
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Notifications
+    @objc func episodesDidChange(notification: Notification) {
+        navigationController?.popViewController(animated: true)
     }
     
     func syncModelWithView() {

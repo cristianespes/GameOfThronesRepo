@@ -31,6 +31,12 @@ class WikiViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        // Baja en la notificación
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
     // MARK: - Lyfe Cycle
     override func viewDidLoad() { // Cuando todos mis outlets han sido cargados, no son nil
         super.viewDidLoad()
@@ -46,13 +52,6 @@ class WikiViewController: UIViewController {
         // Nos damos de alta en las notificaciones
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: .houseDidChangeNotification, object: nil) // Object es el que manda la notificacion
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Nos damos de baja las notificaciones
-        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Notifications

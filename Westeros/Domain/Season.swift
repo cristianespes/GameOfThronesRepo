@@ -56,8 +56,8 @@ extension Season {
         return "\(number)\(name)\(releaseDate)"
     }
     
-    var proxyForComparison: String {
-        return "\(number)\(name)".lowercased()
+    var proxyForComparison: Date {
+        return releaseDate
     }
 }
 
