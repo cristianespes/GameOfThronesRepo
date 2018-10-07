@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    func wrappredInNavigation() -> UINavigationController {
+    func wrappedInNavigation() -> UINavigationController {
         let navCon = UINavigationController(rootViewController: self)
         navCon.navigationBar.barTintColor = .burlywood
         navCon.navigationBar.tintColor = .saddlebrown

@@ -13,6 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
 
     var window: UIWindow?
 
+    var splitViewController: UISplitViewController!
+    var seasonDetailViewController: SeasonDetailViewController!
+    var houseDetailViewController: HouseDetailViewController!
+    var houseListNavigation: UINavigationController!
+    var seasonListNavigation: UINavigationController!
+    
+    var houseDetailNavigation: UINavigationController!
+    var seasonDetailNavigation: UINavigationController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -27,17 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         
         
         // 2 - Crear controladores del SplitViewController
-        
         // MasterViewController
         let houseListViewController = HouseListViewController(model: houses)
         let lastHouseSelected = houseListViewController.lastSelectedHouse()
+        houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
         
         let seasonListViewController = SeasonListViewController(model: seasons)
         let lastSeasonSelected = seasonListViewController.lastSelectedSeason()
-        
-        // DetailViewController
-        let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
-        let seasonDetailViewController = SeasonDetailViewController(model: lastSeasonSelected)
+        seasonDetailViewController = SeasonDetailViewController(model: lastSeasonSelected)
         
         // Asignar delegados
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -48,30 +53,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
             seasonListViewController.delegate = seasonListViewController
         }
         
+        // Crear los Navigation
+        houseListNavigation = houseListViewController.wrappedInNavigation()
+        seasonListNavigation = seasonListViewController.wrappedInNavigation()
+        houseDetailNavigation = houseDetailViewController.wrappedInNavigation()
+        seasonDetailNavigation = seasonDetailViewController.wrappedInNavigation()
+        
         
         // 3 - Crear combinador del TabBarController
-        let tabBarViewController = WesterosTabBarController(houses: houseListViewController, seasons: seasonListViewController)
+        let tabBarController = UITabBarController()
+        
+        tabBarController.viewControllers = [houseListNavigation, seasonListNavigation]
+        tabBarController.delegate = self
         
         // Personalización de TabBarController
-        tabBarViewController.tabBar.barTintColor = .burlywood
-        tabBarViewController.tabBar.tintColor = .maroon
+        tabBarController.tabBar.barTintColor = .burlywood
+        tabBarController.tabBar.tintColor = .maroon
         if #available(iOS 10.0, *) {
-            tabBarViewController.tabBar.unselectedItemTintColor = .white
+            tabBarController.tabBar.unselectedItemTintColor = .white
         }
+        tabBarController.tabBar.items![0].image = UIImage(named: "ShieldIcon")
+        tabBarController.tabBar.items![0].title = houseListViewController.title?.uppercased()
+        tabBarController.tabBar.items![1].image = UIImage(named: "SeasonIcon")
+        tabBarController.tabBar.items![1].title = seasonListViewController.title?.uppercased()
         
-
-        // 4 - Crear combinador del SplitViewController
-        let splitViewController = UISplitViewController()
-        splitViewController.viewControllers = [
-            tabBarViewController,
-            houseDetailViewController.wrappredInNavigation()
-        ]
+        // 4 - Creamos el UISplitViewController y le asignamos los viewControllers
+        splitViewController = UISplitViewController()
+        splitViewController.viewControllers = [tabBarController, houseDetailNavigation, seasonDetailNavigation]
         
         // Ajustes del SplitView
         splitViewController.preferredDisplayMode = .allVisible
         splitViewController.preferredPrimaryColumnWidthFraction = 0.40
         splitViewController.maximumPrimaryColumnWidth = 300
-
+        /*[houseDetailViewController, seasonDetailViewController].forEach {
+            $0.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        }*/
+        
         
         // 5 - Asignar el rootVC
         let rootViewController = splitViewController
@@ -108,3 +125,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
 
 }
 
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navigationController = viewController as? UINavigationController,
+            let viewController = navigationController.viewControllers.first else { return }
+        
+        let detailNavigation: UINavigationController
+        if type(of: viewController ) == SeasonListViewController.self {
+            detailNavigation = seasonDetailNavigation
+        } else {
+            detailNavigation = houseDetailNavigation
+        }
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController.showDetailViewController(detailNavigation, sender: nil)
+        }
+    }
+}
