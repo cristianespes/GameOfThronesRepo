@@ -118,6 +118,13 @@ class SeasonListViewController: UITableViewController {
     }
 }
 
+extension SeasonListViewController: SeasonListViewControllerDelegate {
+    func seasonListViewController(_ vc: SeasonListViewController, didSelectSeason season: Season) {
+        let seasonDetailViewController = SeasonDetailViewController(model: season)
+    navigationController?.pushViewController(seasonDetailViewController, animated: true)
+    }
+}
+
 // MARK: - Persistence (UserDefaults)
 extension SeasonListViewController {
     // Guardar la última casa seleccionada

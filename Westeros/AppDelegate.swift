@@ -40,8 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate { // Delegado de UIApplica
         let seasonDetailViewController = SeasonDetailViewController(model: lastSeasonSelected)
         
         // Asignar delegados
-        houseListViewController.delegate = houseDetailViewController
-        seasonListViewController.delegate = seasonDetailViewController
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            houseListViewController.delegate = houseDetailViewController
+            seasonListViewController.delegate = seasonDetailViewController
+        } else {
+            houseListViewController.delegate = houseListViewController
+            seasonListViewController.delegate = seasonListViewController
+        }
         
         
         // 3 - Crear combinador del TabBarController

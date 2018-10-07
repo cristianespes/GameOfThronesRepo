@@ -121,6 +121,13 @@ class HouseListViewController: UITableViewController {
     
 }
 
+extension HouseListViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ vc: HouseListViewController, didSelectHouse house: House) {
+        let houseDetailViewController = HouseDetailViewController(model: house)
+        navigationController?.pushViewController(houseDetailViewController, animated: true)
+    }
+}
+
 // MARK: - Persistence (UserDefaults)
 extension HouseListViewController {
     // Guardar la última casa seleccionada
